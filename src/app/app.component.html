@@ -9,9 +9,9 @@
     <li><i class="fa-solid fa-moon fa-5x" [ngClass]="{'bright-night': dato.value >= 11 && dato.value <= 15}"></i></li>
   </ul>
 
-  <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10 p-3" *ngFor="let dato of datos">
+  <!-- <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10 p-3" *ngFor="let dato of datos">
     <div *ngIf="dato.value >= 1 && dato.value <= 5" class="icons-list-2">
-      <span *ngFor="let num of [1, 2, 3, 4, 5]" class="number">{{ num }}&nbsp;</span>
+      <span *ngFor="let num of [1, 2, 3, 4, 5]" class="number" [ngClass]="{ 'bright': dato.value === num }">{{ num }}&nbsp;</span>
     </div>
     <div *ngIf="dato.value >= 6 && dato.value <= 10" class="icons-list-2">
       <span *ngFor="let num of [6, 7, 8, 9, 10]" class="number">{{ num }}&nbsp;</span>
@@ -19,9 +19,20 @@
     <div *ngIf="dato.value >= 11 && dato.value <= 15" class="icons-list-2">
       <span *ngFor="let num of [11, 12, 13, 14, 15]" class="number">{{ num }}&nbsp;</span>
     </div>
+  </div> -->
+  
+  <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10 p-3" *ngFor="let dato of datos">
+    <div *ngIf="dato.value >= 1 && dato.value <= 5" class="icons-list-2">
+      <span *ngFor="let num of [1, 2, 3, 4, 5]" class="number" [style.color]="dato.value === num ? 'black' : 'gray'">{{ num }}&nbsp;</span>
+    </div>
+    <div *ngIf="dato.value >= 6 && dato.value <= 10" class="icons-list-2">
+      <span *ngFor="let num of [6, 7, 8, 9, 10]" class="number" [style.color]="dato.value === num ? 'white' : 'gray'">{{ num }}&nbsp;</span>
+    </div>
+    <div *ngIf="dato.value >= 11 && dato.value <= 15" class="icons-list-2">
+      <span *ngFor="let num of [11, 12, 13, 14, 15]" class="number" [style.color]="dato.value === num ? 'white' : 'gray'">{{ num }}&nbsp;</span>
+    </div>
   </div>
   
-
   <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10" *ngFor="let dato of datos">
     <div class="px-6 py-4">
       <div class="font-bold text-md mb-2">Clima meteorológico</div>
@@ -31,10 +42,46 @@
         {{ dato.value }}
       </p>
     </div>
-
- 
-    
-    
   </div>  
+</div>
+
+<div class="center2 my-10">
+  <p class="text-2xl">RVR</p>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">datosLogRvr</th>
+        <th class="px-4 py-2">Author</th>
+        <th class="px-4 py-2">Views</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let datos of datosLogRvr">
+      <tr class="bg-gray-100">
+        <td class="border px-4 py-2">{{datos.id}}</td>
+        <td class="border px-4 py-2">{{datos.text}}</td>
+        <td class="border px-4 py-2">{{datos.ts}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class=" my-10 m-auto center3">
+  <p class="text-2xl text-center">RVR</p>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">datosLogRvr</th>
+        <th class="px-4 py-2">Author</th>
+        <th class="px-4 py-2">Views</th>
+      </tr>
+    </thead>
+    <!-- <tbody *ngFor="let datos of datosLogMetar">
+      <tr class="bg-gray-100">
+        <td class="border px-4 py-2">{{datos.id}}</td>
+        <td class="border px-4 py-2">{{datos.text}}</td>
+        <td class="border px-4 py-2">{{datos.ts}}</td>
+      </tr>
+    </tbody> -->
+  </table>
 </div>
 
