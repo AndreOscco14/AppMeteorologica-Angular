@@ -45,43 +45,45 @@
   </div>  
 </div>
 
-<div class="center2 my-10">
-  <p class="text-2xl">RVR</p>
-  <table class="table-auto">
-    <thead>
-      <tr>
-        <th class="px-4 py-2">datosLogRvr</th>
-        <th class="px-4 py-2">Author</th>
-        <th class="px-4 py-2">Views</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let datos of datosLogRvr">
-      <tr class="bg-gray-100">
-        <td class="border px-4 py-2">{{datos.id}}</td>
-        <td class="border px-4 py-2">{{datos.text}}</td>
-        <td class="border px-4 py-2">{{datos.ts}}</td>
-      </tr>
-    </tbody>
-  </table>
+ <div class="container content-between mx-auto my-10">
+  <p class="text-2xl text-center">Log RVR</p>
+  <div class="overflow-x-auto">
+    <table class="table-auto">
+      <thead>
+        <tr>
+          <th class="px-4 py-2">Text</th>
+          <th class="px-4 py-2">Ts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datos of datosLogRvr" class="bg-gray-100">
+          <td class="border px-4 py-2">{{datos.text}}</td>
+          <td class="border px-4 py-2">{{datos.ts}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<div class=" my-10 m-auto center3">
-  <p class="text-2xl text-center">RVR</p>
-  <table class="table-auto">
-    <thead>
-      <tr>
-        <th class="px-4 py-2">datosLogRvr</th>
-        <th class="px-4 py-2">Author</th>
-        <th class="px-4 py-2">Views</th>
-      </tr>
-    </thead>
-    <!-- <tbody *ngFor="let datos of datosLogMetar">
-      <tr class="bg-gray-100">
-        <td class="border px-4 py-2">{{datos.id}}</td>
-        <td class="border px-4 py-2">{{datos.text}}</td>
-        <td class="border px-4 py-2">{{datos.ts}}</td>
-      </tr>
-    </tbody> -->
-  </table>
+<div class="container mx-auto my-10">
+  <p class="text-2xl text-center">Log Metar</p>
+  <div class="overflow-x-auto">
+    <table class="table-auto">
+      <thead>
+        <tr>
+          <th class="px-4 py-2">Text</th>
+          <th class="px-4 py-2">Ts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datos of datosLogMetar | paginate: { itemsPerPage: 10, currentPage: p }" class="bg-gray-100">
+          <td class="border px-4 py-2">{{datos.text}}</td>
+          <td class="border px-4 py-2">{{datos.ts}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center mt-4">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </div>
-

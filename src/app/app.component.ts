@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
-import { HttpClient } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,8 @@ export class AppComponent implements OnInit {
   datos:any[] = []
   datosLogMetar:any;
   datosLogRvr: any;
-
+  p:number = 1
+  
   constructor(
     private apiService: ApiService
   ) {}
