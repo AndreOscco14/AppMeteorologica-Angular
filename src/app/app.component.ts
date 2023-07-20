@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AppComponent implements OnInit {
-  // dataFromApi: any;
   datos:any[] = []
 
   constructor(private apiService: ApiService) {}
@@ -27,18 +26,5 @@ export class AppComponent implements OnInit {
         console.error('Error al obtener datos de la API:', error);
       }
     );
-  }
+  }  
 }
-
-// cargarDatosDesdeApi(): void {
-//   // Llama a tu servicio API para obtener los datos desde FastAPI
-//   this.apiService.obtenerDatos().subscribe(
-//     (response: any[]) => {
-//       this.datos = response; // Almacena los datos recibidos en la propiedad 'datos'
-//     },
-//     (error) => {
-//       console.error('Error al obtener los datos de la API:', error);
-//     }
-//   );
-// }
-// }

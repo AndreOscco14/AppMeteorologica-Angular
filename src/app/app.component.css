@@ -16,7 +16,24 @@
     margin: 0 50px; /* Espacio entre los iconos */
   }
   
+  .icons-list-2 .number {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  
 
   h1 {
     margin-bottom: 10%;
+  }
+
+  .bright-sun {
+    color: rgba(230, 230, 10, 0.853);
+  }
+
+  .bright-crepus{
+    color: rgba(234, 159, 20, 0.784);
+  }
+
+  .bright-night{
+    color: rgba(40, 148, 206, 0.834);
   }
