@@ -1,0 +1,22 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .icons-list {
+    list-style-type: none;
+    justify-content: space-between;
+    display: flex;
+  }
+  
+  .icons-list li {
+    margin: 0 50px; /* Espacio entre los iconos */
+  }
+  
+
+  h1 {
+    margin-bottom: 10%;
+  }
