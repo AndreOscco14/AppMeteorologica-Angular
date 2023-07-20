@@ -8,18 +8,6 @@
     <li><i class="fa-solid fa-cloud-sun fa-5x" [ngClass]="{'bright-crepus': dato.value >= 6 && dato.value <= 10}"> </i></li>
     <li><i class="fa-solid fa-moon fa-5x" [ngClass]="{'bright-night': dato.value >= 11 && dato.value <= 15}"></i></li>
   </ul>
-
-  <!-- <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10 p-3" *ngFor="let dato of datos">
-    <div *ngIf="dato.value >= 1 && dato.value <= 5" class="icons-list-2">
-      <span *ngFor="let num of [1, 2, 3, 4, 5]" class="number" [ngClass]="{ 'bright': dato.value === num }">{{ num }}&nbsp;</span>
-    </div>
-    <div *ngIf="dato.value >= 6 && dato.value <= 10" class="icons-list-2">
-      <span *ngFor="let num of [6, 7, 8, 9, 10]" class="number">{{ num }}&nbsp;</span>
-    </div>
-    <div *ngIf="dato.value >= 11 && dato.value <= 15" class="icons-list-2">
-      <span *ngFor="let num of [11, 12, 13, 14, 15]" class="number">{{ num }}&nbsp;</span>
-    </div>
-  </div> -->
   
   <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10 p-3" *ngFor="let dato of datos">
     <div *ngIf="dato.value >= 1 && dato.value <= 5" class="icons-list-2">
@@ -46,9 +34,9 @@
 </div>
 
  <div class="container content-between mx-auto my-10">
-  <p class="text-2xl text-center">Log RVR</p>
+  <p class="text-2xl text-center">RVR</p>
   <div class="overflow-x-auto">
-    <table class="table-auto">
+    <table class="table-auto mx-auto">
       <thead>
         <tr>
           <th class="px-4 py-2">Text</th>
@@ -58,7 +46,7 @@
       <tbody>
         <tr *ngFor="let datos of datosLogRvr" class="bg-gray-100">
           <td class="border px-4 py-2">{{datos.text}}</td>
-          <td class="border px-4 py-2">{{datos.ts}}</td>
+          <td class="border px-4 py-2">{{ formatTimestampToTime(datos.ts) }}</td>
         </tr>
       </tbody>
     </table>
@@ -66,9 +54,9 @@
 </div>
 
 <div class="container mx-auto my-10">
-  <p class="text-2xl text-center">Log Metar</p>
+  <p class="text-2xl text-center">Metar</p>
   <div class="overflow-x-auto">
-    <table class="table-auto">
+    <table class="table-auto mx-auto">
       <thead>
         <tr>
           <th class="px-4 py-2">Text</th>
@@ -78,7 +66,7 @@
       <tbody>
         <tr *ngFor="let datos of datosLogMetar | paginate: { itemsPerPage: 10, currentPage: p }" class="bg-gray-100">
           <td class="border px-4 py-2">{{datos.text}}</td>
-          <td class="border px-4 py-2">{{datos.ts}}</td>
+          <td class="border px-4 py-2">{{ formatTimestampToTime(datos.ts) }}</td>
         </tr>
       </tbody>
     </table>

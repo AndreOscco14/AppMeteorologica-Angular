@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
   datos:any[] = []
   datosLogMetar:any;
   datosLogRvr: any;
-  p:number = 1
-  
+  p:number = 1 //Iniciación de la paginción
+
   constructor(
     private apiService: ApiService
   ) {}
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     try {
       const datos: any = await this.apiService.getLogMetar().toPromise();
       this.datosLogMetar = datos;
-      console.log(datos);
+      console.log("Data Metar", datos);
     } catch (error) {
       console.log(error);
     }
@@ -56,11 +56,17 @@ export class AppComponent implements OnInit {
     try {
       const data: any = await this.apiService.getLogRvr().toPromise();
       this.datosLogRvr = data;
-      console.log(data);
+      console.log("Data RVR",data);
     } catch (error) {
       console.log(error);
     }
   }
+
+    // Función para convertir timestamp a hora legible
+    formatTimestampToTime(timestamp: number): string {
+      const date = new Date(timestamp * 1000);
+      return date.toLocaleTimeString(); // Cambia el formato de hora si es necesario
+    }
 }
 
 //   dataFromApiFast(): void {
