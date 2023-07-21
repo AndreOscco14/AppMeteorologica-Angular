@@ -1,8 +1,17 @@
 
 
 <div class="center">
-  <h1 class="text-3xl">Prevenciones meteorológicas</h1>
 
+  <div class="max-w-sm rounded overflow-hidden shadow-lg my-10" *ngFor="let dato of datos">
+    <div class="px-6 py-4">
+      <div class="font-bold text-md mb-2">Valor Calculado Meteo</div>
+      <p class="text-gray-700 text-base text-center">
+      </p>
+      <p class="text-center">
+        {{ dato.value }}
+      </p>
+    </div>
+  </div>  
 
   <ul class="icons-list" *ngFor="let dato of datos">
     <li><i class="fa-solid fa-sun fa-5x" [ngClass]="{'bright-sun': dato.value >= 1 && dato.value <= 5}"></i></li>
@@ -23,16 +32,7 @@
     </div>
   </div>
   
-  <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10" *ngFor="let dato of datos">
-    <div class="px-6 py-4">
-      <div class="font-bold text-md mb-2">Clima meteorológico</div>
-      <p class="text-gray-700 text-base text-center">
-      </p>
-      <p class="text-center">
-        {{ dato.value }}
-      </p>
-    </div>
-  </div>  
+
 </div>
 
  <div class="container content-between mx-auto my-10">
@@ -48,7 +48,7 @@
       <tbody>
         <tr *ngFor="let datos of datosLogRvr" class="bg-gray-100">
           <td class="border px-4 py-2">{{datos.text}}</td>
-          <td class="border px-4 py-2">{{ formatTimestampToTime(datos.ts) }}</td>
+          <td class="border px-4 py-2">{{ formatTimestampToDateTime(datos.ts) }}</td>
         </tr>
       </tbody>
     </table>
@@ -68,7 +68,7 @@
       <tbody>
         <tr *ngFor="let datos of datosLogMetar | paginate: { itemsPerPage: 10, currentPage: p }" class="bg-gray-100">
           <td class="border px-4 py-2">{{datos.text}}</td>
-          <td class="border px-4 py-2">{{ formatTimestampToTime(datos.ts) }}</td>
+          <td class="border px-4 py-2">{{ formatTimestampToDateTime(datos.ts) }}</td>
         </tr>
       </tbody>
     </table>

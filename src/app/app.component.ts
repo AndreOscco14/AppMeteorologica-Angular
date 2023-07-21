@@ -67,4 +67,19 @@ export class AppComponent implements OnInit {
       const date = new Date(timestamp * 1000);
       return date.toLocaleTimeString(); // Cambia el formato de hora si es necesario
     }
+
+   // Función para convertir timestamp a hora y fecha legible
+      formatTimestampToDateTime(timestamp: number): string {
+        const date = new Date(timestamp * 1000);
+        const options: Intl.DateTimeFormatOptions = {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+        };
+        return date.toLocaleString(undefined, options);
+      }
+
 }
