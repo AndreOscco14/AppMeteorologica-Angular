@@ -3,11 +3,13 @@
 <div class="center">
   <h1 class="text-3xl">Prevenciones meteorológicas</h1>
 
+
   <ul class="icons-list" *ngFor="let dato of datos">
     <li><i class="fa-solid fa-sun fa-5x" [ngClass]="{'bright-sun': dato.value >= 1 && dato.value <= 5}"></i></li>
     <li><i class="fa-solid fa-cloud-sun fa-5x" [ngClass]="{'bright-crepus': dato.value >= 6 && dato.value <= 10}"> </i></li>
     <li><i class="fa-solid fa-moon fa-5x" [ngClass]="{'bright-night': dato.value >= 11 && dato.value <= 15}"></i></li>
   </ul>
+  <i class="fas fa-sunset"></i>
   
   <div class="max-w-sm rounded overflow-hidden shadow-lg mt-10 p-3" *ngFor="let dato of datos">
     <div *ngIf="dato.value >= 1 && dato.value <= 5" class="icons-list-2">

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-root',
@@ -50,13 +49,14 @@ export class AppComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
-  }
+ }
  
-  async dataFromRvr() {
+  dataFromRvr() {
     try {
-      const data: any = await this.apiService.getLogRvr().toPromise();
-      this.datosLogRvr = data;
-      console.log("Data RVR",data);
+      this.apiService.getLogRvr().subscribe((data: any) => {
+        this.datosLogRvr = data;
+        console.log("RVR:", data)
+      })
     } catch (error) {
       console.log(error);
     }
@@ -68,31 +68,3 @@ export class AppComponent implements OnInit {
       return date.toLocaleTimeString(); // Cambia el formato de hora si es necesario
     }
 }
-
-//   dataFromApiFast(): void {
-//     this.apiService.getApiData().subscribe((data: any) => {
-//         this.datos = data;
-//         console.log("Datos de FastApi",data)
-//       },
-//       (error) => {
-//         console.error('Error al obtener datos de la API:', error);
-//       }
-//     );
-//   }  
-
-//   dataFromLogMetar(): void{
-//     this.apiService.getLogMetar().subscribe((datos:any) => {
-//       this.datosLogMetar = datos;
-//       console.log(datos)
-//     }, (error) => {
-//       console.error('Error con DataFromLogMetar: ', error)
-//     })
-//   }
- 
-//   dataFromRvr() {
-//     this.apiService.getLogRvr().subscribe((data:any) => {
-//       this.datosLogRvr = data;
-//       console.log(data)
-//     })
-//   }
-// }
