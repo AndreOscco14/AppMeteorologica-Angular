@@ -81,5 +81,4 @@ export class AppComponent implements OnInit {
         };
         return date.toLocaleString(undefined, options);
       }
-
 }
